@@ -1,0 +1,66 @@
+CPU BrandString: AMD Ryzen 7 5700U with Radeon Graphics         
+MicrocodeRevision: 0x00000000
+Virtualization 0
+CPUID 00860F81 00100800 7ED8320B 178BFBFF
+ExtSigEcx 75C237FF
+ExtSigEdx 2FD3FBFF
+Type 0x00
+Family 0x0F
+Model 0x68
+ExtModel 0x06
+ExtFamily 0x08
+Stepping 0x01
+Features 0x7ED8320B178BFBFF
+ExtFeatures 0x75C237FF2FD3FBFF
+Signature 0x00860F81
+Brand 0x00
+AppleProcessorType 0x0F01
+CstConfigLock 0
+CpuGeneration 0
+MaxId 0x00000010
+MaxExtId 0x80000020
+PackageCount 1
+CoreCount 8
+ThreadCount 16
+ExternalClock 100
+ARTFrequency 0
+CPUFrequency 1796623570
+CPUFrequencyFromTSC 1796623570
+CPUFrequencyFromART 0
+TscAdjust 0
+CPUFrequencyFromApple 0
+CPUFrequencyFromVMT 0
+FSBFrequency 99812420
+
+CPU00:
+
+CPU01:
+
+CPU02:
+
+CPU03:
+
+CPU04:
+
+CPU05:
+
+CPU06:
+
+CPU07:
+
+CPU08:
+
+CPU09:
+
+CPU10:
+
+CPU11:
+
+CPU12:
+
+CPU13:
+
+CPU14:
+
+CPU15:
+
