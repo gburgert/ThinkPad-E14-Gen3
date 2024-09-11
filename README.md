@@ -16,7 +16,8 @@ sel partition 1
 assign
 ```
 Montou a partição efi no E:  
-Baixar explorer++ https://explorerplusplus.com/download  
+Baixar explorer++  
+https://explorerplusplus.com/download  
 --> abrir o explorer++ como admin  
 --> copiar pasta boot e efi **PRA FORA DO WINDOWS**  
 
@@ -128,7 +129,7 @@ https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi
 **kexts Nootedred** https://github.com/NootInc/NootedRed (não tem release)  
 --> vai no actions e vai clicando em todos os workflows. Aquele que tiver artifacts, baixa. Precisa estar logado  
 --> consegui aqui https://github.com/NootInc/NootedRed/actions/runs/5846412583  
-**kexts Audio** https://github.com/acidanthera/AppleALC/releases
+**kexts Audio** https://github.com/acidanthera/AppleALC/releases  
 --> fica com AppleALC.kext  
 **kexts rede** https://github.com/Mieze/RTL8111_driver_for_OS_X/releases  
 --> fica com RealtekRTL8111-V2.4.2\RealtekRTL8111-V2.4.2\Debug\RealtekRTL8111.kext  
@@ -167,8 +168,8 @@ Precisou desse para o boot funcionar
 --> https://github.com/dortania/Getting-Started-With-ACPI/blob/master/extra-files/compiled/SSDT-CPUR.aml  
 
 **ACPI BACKLIGHT**  
-baixar SSDTTime https://github.com/corpnewt/SSDTTime
-rodar o ssdttime.bat como admin
+Baixar SSDTTime https://github.com/corpnewt/SSDTTime  
+Rodar o ssdttime.bat como admin
 >P. Dump DSDT  
  0 (PNLF) -> 19 (AMD)  
 
@@ -180,7 +181,7 @@ rodar o ssdttime.bat como admin
 --> Copiar tools/ssdttime-master/results/SSDT-EC.aml  
 
 > ATENCAO ESSE PROCEDIMENTO NAO DEU BOM RESULTADO  
-não sei o q acontece, algumas vezes tirando o aml carrega o kext, mas depois para de funcionar aí coloca o aml volta a carregar, depois pára de novo
+não sei o que acontece, algumas vezes tirando o aml carrega o kext, mas depois para de funcionar aí coloca o aml volta a carregar, depois pára de novo
 
 > estou dando o boot pelo hub usb. Tem funcionado sempre agora (8/9/23)
 
@@ -207,7 +208,7 @@ tools\iasl\iasl.exe ssdt\SSDT-SBUS-MCHC.dsl
 --Compilation successful. 0 Errors, 0 Warnings, 0 Remarks, 0 Optimizations--  
 --> copiar SSDT-SBUS-MCHC.aml  
 
-**Fix irq conflicts**  
+**Fix IRQ conflicts**  
 https://dortania.github.io/Getting-Started-With-ACPI/Universal/irq.html  
 ssdttime opção 1 FixHPET -> C (IRQs from legacy devices)  
 --> copiar tools/ssdttime-master/results/SSDT-HPET.aml  
@@ -215,36 +216,36 @@ ssdttime opção 1 FixHPET -> C (IRQs from legacy devices)
 **SSDTTime xosi** (I2C trackpads) - desnecessário  
 --> copiar tools/ssdttime-master/results/SSDT-XOSI.aml  
 \
-Tentando USBX-LAPTOP prebuilt - 8/9/23
-https://github.com/dortania/Getting-Started-With-ACPI/blob/master/extra-files/compiled/SSDT-EC-USBX-LAPTOP.aml
+Tentando USBX-LAPTOP prebuilt - 8/9/23  
+https://github.com/dortania/Getting-Started-With-ACPI/blob/master/extra-files/compiled/SSDT-EC-USBX-LAPTOP.aml  
+  
+*FIM DO ACPI*  
 
-*FIM DO ACPI*
+## Começa a montar o config.plist  
 
-## Começa a montar o config.plist
-
-**Instala o choco**
-Abrir powershell com permissão de admin
+**Instala o choco**  
+Abrir powershell com permissão de admin  
 ```
 Get-ExecutionPolicy
 Set-ExecutionPolicy AllSigned
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
 \
-**Instala o git**
+**Instala o git**  
 ```
 choco install git
 ```
 Restart terminal pro git entrar no path  
 \
-**Propertree**
+**Propertree**  
 ```
 cd 'hackintosh\tools'  
 git clone https://github.com/corpnewt/ProperTree  
 ```
 \
-**Pegar gensmbios**
+**Pegar gensmbios**  
 ```
-git clone https://github.com/corpnewt/GenSMBIOS 
+git clone https://github.com/corpnewt/GenSMBIOS  
 copy 'hackintosh-e14\OpenCore-0.9.4-DEBUG\Docs\Sample.plist' 'hackintosh-e14\EFI\OC\config.plist'
 ```
 Abrir config.plist  
@@ -594,8 +595,8 @@ Resolvi pegar o light sensor, mas descobri que ele não tem o hw pra isso
 https://github.com/CeuiLiSA/Opencore-EFI/blob/master/EFI/OC/ACPI/SSDT-ALS0.aml  
 pegar do opencore o SMCLightSensor.kext  
 serve pra manter a conf de brilho entre os reboots, mas pra mim nao precisou.  
-\
-## documentação útil para o futuro
+
+## Documentação útil para o futuro
 https://www.osstatus.com/search/results?platform=all&framework=all&search=
 
 **DRM**  
