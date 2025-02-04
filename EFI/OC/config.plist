@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>#WARNING - 1</key>
-	<string>Atualizacao EFI 05/08/24</string>
+	<string>Atualizacao EFI 03/02/25</string>
 	<key>#WARNING - 2</key>
-	<string>Opencore 1.0.0 09/05/24</string>
+	<string>Opencore 1.0.3 03/12/24</string>
 	<key>ACPI</key>
 	<dict>
 		<key>Add</key>
@@ -29,6 +29,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>Defines PNLF device with a _UID of 19 for backlight control</string>
+				<key>Comment2</key>
+				<string>nao resolve hang no boot apos  atualizacao</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -301,7 +303,7 @@
 				<key>Comment</key>
 				<string>MMIO devirt 0xFDC00000 (0x100 pages, 0x8000000000000001)</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 			</dict>
 			<dict>
 				<key>Address</key>
@@ -309,7 +311,7 @@
 				<key>Comment</key>
 				<string>MMIO devirt 0xFED80000 (0x1 pages, 0x8000000000000001)</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 			</dict>
 		</array>
 		<key>Patch</key>
@@ -644,7 +646,7 @@
 				<key>Comment</key>
 				<string>Driver BT Orico</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/BrcmFirmwareData</string>
 				<key>MaxKernel</key>
@@ -662,7 +664,7 @@
 				<key>Comment</key>
 				<string>Driver BT Orico</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AirportBrcmFixup</string>
 				<key>MaxKernel</key>
@@ -680,7 +682,7 @@
 				<key>Comment</key>
 				<string>Driver BT Orico</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
@@ -698,7 +700,7 @@
 				<key>Comment</key>
 				<string>Driver BT Orico</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/BlueToolFixup</string>
 				<key>MaxKernel</key>
@@ -716,7 +718,7 @@
 				<key>Comment</key>
 				<string>Driver BT Orico</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/BrcmPatchRAM3</string>
 				<key>MaxKernel</key>
@@ -733,6 +735,8 @@
 				<string>BrightnessKeys.kext</string>
 				<key>Comment</key>
 				<string>BrightnessKeys.kext</string>
+				<key>Comment2</key>
+				<string>nao resolve hang no boot 7/8</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -860,7 +864,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RtWlanU</string>
 				<key>MaxKernel</key>
@@ -878,7 +882,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RtWlanU1827</string>
 				<key>MaxKernel</key>
@@ -2324,6 +2328,8 @@
 				<string>RuntimeCode</string>
 			</dict>
 		</array>
+		<key>Unload</key>
+		<array/>
 	</dict>
 </dict>
 </plist>
