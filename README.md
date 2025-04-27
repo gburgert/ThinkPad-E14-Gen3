@@ -520,24 +520,14 @@ https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter
 desativar csr: nvram->add->7C..82->csr-active-config 03080000  
 adicionar nvram->delete->7C..82->csr-active-config  
 reboot  
-
-Vou seguir a receita pra manter o CSR ativo  
-https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter/discussions/167  
-Baixar o Notarized https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter/raw/master/Package%20Source/Notarized%20Wireless%20USB%20OC%20Big%20Sur%20Adapter.zip  
---> rodar Consent.command  
-boot em recovery. CMD+R durante o boot funcionou  
-/usr/sbin/spctl kext-consent add ZYM2ETK3E7  
-reboot  
-sudo spctl --master-disable  
 Rodar o installer  
---> criou uma pasta EFI/OC no EFI do HD. Montar o EFI do pendrive e copiar os kexts  
---> inserir os kexts no config.plist RtWlanU.kext e RtWlanU1827.kext  
-reboot  
-CSR 00000000 de novo <-- deu errado, rejeitou o app  
-reboot  
---> não reconheceu o wifi. Tb bugou o boot. Deixar o csr em 0308  
+--> ele coloca os drives no EFI do SSD. Copiar de volta pro EFI do git  
+--> inserir também os kexts no config.plist RtWlanU.kext e RtWlanU1827.kext  
 
-Wifi https://dortania.github.io/Wireless-Buyers-Guide/unsupported.html#supported-chipsets  
+A receita pra manter o CSR ativo não funciona  
+https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter/discussions/167    
+
+Supported Wifi https://dortania.github.io/Wireless-Buyers-Guide/unsupported.html#supported-chipsets  
   \
 **MMIOWhitelist** - vou tentar isso pq as vezes nao carrega o kext de sbus e as vezes nao liga a tela na volta do sleep  
 https://macos86.it/topic/5511-let-talk-aboutdevirtualise-mmio-quirk-and-mmio-whitelist/  
