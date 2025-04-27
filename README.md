@@ -103,14 +103,14 @@ python3 macrecovery.py -b Mac-B4831CEBD52A0C4C -m 00000000000000000 download
 ```
 Vou usar o rufus pra formatar o pendrive  
 https://dortania.github.io/OpenCore-Install-Guide/installer-guide/windows-install.html#rufus-method  
-> no-bootable, GPT, BIOS or UEFI, FAT32, 32k  
+> bootable, GPT, BIOS or UEFI, FAT32, 32k  
+
+==> OBS: quando faz gpt, ele cria a partição EFI. Uma das receitas fala pra fazer FAT e com isso o boot funcionaria, mas pra mim nunca deu certo.
 
 Criar pasta na raiz do pendrive com.apple.recovery.boot
 Copiar arquivos hackintosh\OpenCore-0.9.4-RELEASE\Utilities\com.apple.recovery.boot para a nova pasta  
-> teve um trick q não sei como eu fiz. No pendrive, consegui uma formatação que criou uma partição EFI. Talvez trocar no rufus pra bootable
 
 Copiar hackintosh\OpenCore-0.9.4-DEBUG\X64\EFI para a nova pasta EFI  
-==> aqui tem uma observação: quando faz gpt, ele cria a partição EFI. No entanto, uma das receitas fala pra fazer FAT e com isso o boot funcionaria. Um dia eu testo.  
 
 ## Preparando o pendrive  
 https://dortania.github.io/OpenCore-Install-Guide/installer-guide/opencore-efi.html  
@@ -126,9 +126,9 @@ https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi
 --> pega AMDRyzenCPUPowerManagement.kext, SMCAMDProcessor.kext
 > OpenCore: make sure AMDRyzenCPUPowerManagement.kext comes before SMCAMDProcessor.kext no config.plist  
 
-**kexts Nootedred** https://github.com/NootInc/NootedRed (não tem release)  
+**kexts Nootedred** https://github.com/ChefKissInc/NootedRed (não tem release)  
 --> vai no actions e vai clicando em todos os workflows. Aquele que tiver artifacts, baixa. Precisa estar logado  
---> consegui aqui https://github.com/NootInc/NootedRed/actions/runs/5846412583  
+--> consegui aqui https://github.com/ChefKissInc/NootedRed/actions/runs/14296911672  
 **kexts Audio** https://github.com/acidanthera/AppleALC/releases  
 --> fica com AppleALC.kext  
 **kexts rede** https://github.com/Mieze/RTL8111_driver_for_OS_X/releases  
@@ -493,13 +493,15 @@ Fala pra usar o ec-usbx para AMD. O SSDTTime não gerou o código correspondente
   
 **Bluetooth**  
 https://dortania.github.io/Wireless-Buyers-Guide/types-of-wireless-card/pcie.html  
-Tem um pulo do gato aqui https://github.com/acidanthera/bugtracker/issues/1054  
+Vai baixar esses abaixo:  
+https://github.com/acidanthera/AirportBrcmFixup/releases  
+https://github.com/acidanthera/BrcmPatchRAM/releases  
 AirpottBrcm.kext  
 BrcmPatchRAM: fica com BlueToolFixup, BrcmPatchRAM3, BrcmFirmwareData.kext  
+Tem um pulo do gato aqui https://github.com/acidanthera/bugtracker/issues/1054  
 --> depois de colocar no config.plist, mover o BrcmFirmwareData pra antes dos outros brcm senão dá kernel panic  
---> You have to block (or remove) AirPortBrcm4360_Injector.kext in 11+  
 https://github.com/acidanthera/AirportBrcmFixup  
-==> esse kit permite plugar o pendrive bluetooth rosa e funciona bem  
+--> You have to block (or remove) AirPortBrcm4360_Injector.kext in 11+  
 
 **Problema do sleep**
 ```
@@ -718,9 +720,10 @@ rm: ../../Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5/Disp
 rm: ../../Library/Displays/Contents/Resources/Overrides/DisplayVendorID-9e5: Permission denied
 ```
 \
-**System setting crashes** && erro de volume hash mismatch (resolveu)  
+**System setting crashes** && erro de volume hash mismatch  
 https://github.com/simprecicchiani/ThinkPad-T460s-macOS-OpenCore/issues/150  
 UEFI->ProtocolOverrides->HashServices->True  
+Por algum motivo quando o bluetooth está ligado ele dá o erro de novo.  
 \
 **Tecla de interrogação do notebook**  
 Instalar o karabiner - https://karabiner-elements.pqrs.org/  
